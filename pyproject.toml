@@ -1,0 +1,21 @@
+[project]
+name = "django-hello-world"
+version = "0.1.0"
+description = "OnXP Python Web Development Class Task"
+authors = [
+    {name = "Muhammad Ulil 'Azmi", email = "ulilazmi100@gmail.com"},
+]
+dependencies = [
+    "Django>=5.0.5",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true

@@ -1,3 +1,6 @@
+# Nix shell
+.nix-shell
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
