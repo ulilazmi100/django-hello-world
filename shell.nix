@@ -36,7 +36,7 @@ pkgs.mkShell {
     export PGDATA=$NIX_SHELL_DIR/db
     export PGHOST=localhost
     export PGUSER=postgres
-    export PGPASSWORD=password
+    export PGPASSWORD=postgres
 
     # Setup PostgreSQL
     mkdir $NIX_SHELL_DIR

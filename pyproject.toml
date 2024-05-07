@@ -6,11 +6,15 @@ authors = [
     {name = "Muhammad Ulil 'Azmi", email = "ulilazmi100@gmail.com"},
 ]
 dependencies = [
-    "Django>=5.0.5",
+    "django>=5.0.4",
+    "ruff>=0.4.3",
 ]
 requires-python = ">=3.11"
 readme = "README.md"
 license = {text = "MIT"}
+
+[tool.pdm.scripts]
+dev = "pdm run src/manage.py runserver"
 
 [build-system]
 requires = ["pdm-backend"]
