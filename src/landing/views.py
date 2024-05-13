@@ -10,6 +10,21 @@ def agregasi(input):
 def page_landing(request):
     return render(request, "landing/index.html")
 
+def page_all(request):
+    return render(request, "landing/all.html")
+
+def page_picture(request):
+    return render(request, "landing/picture.html")
+
+def page_video(request):
+    return render(request, "landing/video.html")
+
+def page_video(request):
+    return render(request, "landing/video.html")
+
+def page_playground(request):
+    return render(request, "landing/playground.html")
+
 def page_about(request):
     if id:
         #do something
