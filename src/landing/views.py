@@ -11,8 +11,9 @@ def page_landing(request):
     return render(request, "landing/index.html")
 
 def page_about(request):
-    context = {
-        "NAMA" : "Jason",
-        "AGREGASI": agregasi(123)
+    if id:
+        #do something
+        pass
+    context = {"NAME" : f"Jason {id}", "AGREGASI": agregasi(123)
     }
-    return render(request, "landing/about.html")
+    return render(request, "landing/about.html", context)
