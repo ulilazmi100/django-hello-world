@@ -6,7 +6,7 @@ authors = [
     {name = "Muhammad Ulil 'Azmi", email = "ulilazmi100@gmail.com"},
 ]
 dependencies = [
-    "django>=5.0.4",
+    "django==5.0.4",
     "ruff>=0.4.3",
 ]
 requires-python = ">=3.11"
@@ -15,7 +15,7 @@ license = {text = "MIT"}
 
 [tool.pdm.scripts]
 dev = "pdm run src/manage.py runserver"
-
+tw-watch = "bunx tailwindcss -i ./app.css -o ./src/landing/static/landing/tailwind.css --watch --minify"
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"

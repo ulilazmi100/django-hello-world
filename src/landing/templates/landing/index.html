@@ -1,21 +1,39 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+    <script src="{% static 'landing/htmx.min.js' %}"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Example HTMX Navigation</title>
+
+    <style>
+        /* Choose to style, Tag style */
+        body {
+            background-color: coral;
+        }
+    </style>
+
+    <!-- <link rel="style" type="css" href="/static/landing/style.css"> => style static normal -->
+    <link rel="stylesheet" href="{% static 'landing/style.css' %}"> 
+    <link rel="stylesheet" href="{% static 'landing/tailwind.css' %}"> 
+    <!-- =>  dynamic link -->
+    
 </head>
 <body>
     This is an example of HTMX
 
-    <button hx-get = "/playground" hx-target="body" hx-push-url="true"> Change Page</button>
+    <button class="bg-green-500" hx-get = "/playground" hx-target="body" hx-push-url="true"> Change Page</button>
 
-    <button hx-get = "/all" hx-target="#content"> ALL</button>
+    <button class="btn btn-primary" hx-get = "/all" hx-target="#content"> ALL</button>
     <button hx-get = "/picture" hx-target="#content"> PICTURE</button>
     <button hx-get = "/video" hx-target="#content"> VIDEO</button>
 
-    <div id="content">
+    <div class="card"></div>
+
+    <div id="content" style="background-color: antiquewhite;"> 
+        <!-- inline styling -->
         -- empty --
     </div>
 </body>

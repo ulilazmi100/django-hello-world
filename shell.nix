@@ -25,6 +25,7 @@ pkgs.mkShell {
     pkgs.pdm
     redis
     pkgs.postgresql
+    bun
   ];
 
   shellHook = ''
