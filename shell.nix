@@ -73,11 +73,11 @@ pkgs.mkShell {
       start
 
     echo "Setup database.. To access DB: psql -U $PGUSER -d postgres"
-    if ! psql -U $(whoami) -tAc "SELECT 1 FROM pg_database WHERE datname='django_sql'" | grep -q 1; then
+    if ! psql -U $(whoami) -tAc "SELECT 1 FROM pg_database WHERE datname='hello_django_sql'" | grep -q 1; then
       createuser -U $(whoami)
       psql -U $(whoami) -d postgres -c "CREATE DATABASE $(whoami) OWNER $(whoami);" || true
       psql -U $(whoami) -d postgres -c "ALTER ROLE $PGUSER SUPERUSER;"
-      psql -U "$PGUSER" -d postgres -c "CREATE DATABASE django_sql" || true
+      psql -U "$PGUSER" -d postgres -c "CREATE DATABASE hello_django_sql" || true
     fi
 
     echo "Run redis.. See log on $NIX_SHELL_DIR/redis.log"

@@ -10,10 +10,24 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
+import environ
 from pathlib import Path
 from django.core.management.commands.runserver import Command as rs
 
 rs.default_port='5000'
+
+# Read Environment
+env = environ.Env(
+    DEBUG=(bool, False),
+    SECRET=(str, 'django-insecure-f)irx=uu^t&+y6yekucca%s#+-zu=k=es8ymq#-l4$evy%$ffi'),
+    POSTGRES_HOST=(str, 'localhost'),
+    POSTGRES_DB=(str, 'postgres'),
+    POSTGRES_USER=(str, 'postgres'),
+    POSTGRES_PASSWORD=(str, 'postgres'),
+    POSTGRES_NAME=(str, 'postgres'),
+    POSTGRES_PORT=(str, '5432')
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -82,8 +96,13 @@ WSGI_APPLICATION = 'django_hello.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env("POSTGRES_DB"),
+        'HOST': env("POSTGRES_HOST"),
+        'USER': env("POSTGRES_USER"),
+        'PASSWORD': env("POSTGRES_PASSWORD"),
+        'PORT': env("POSTGRES_PORT"),
+
     }
 }
 
