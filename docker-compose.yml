@@ -1,0 +1,33 @@
+version: "3.5"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: hello_django_sql
+      POSTGRES_PORT: 5432
+      SECRET: django-insecure-f)irx=uu^t&+y6yekucca%s#+-zu=k=es8ymq#-l4$evy%$ffi
+      DEBUG: False
+    volumes:
+     - shared-volume:/app/src/static
+  proxy:
+    image: nginx
+    expose:
+     - "80:80"
+    volumes:
+      - ./docker/default.conf:/etc/nginx/conf.d/default.conf
+      - shared-volume:/app/src/static
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: hello_django_sql
+
+volumes:
+  shared-volume:
+
