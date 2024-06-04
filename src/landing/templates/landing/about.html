@@ -1,3 +1,24 @@
 ini about.html
 
-saya adalah {{NAME}}
+saya adalah {{NAME}} <br/>
+year is {{YEAR}} <br/>
+agregasi = {{AGREGASI}} <br/>
+
+{% csrf_token %}
+<!-- Take csrf_token to post, usually it can be used one time to prevent csrf forgery -->
+<!-- We can also get it using HEAD -->
+
+<form method="POST" enctype="multipart/data">
+    {% csrf_token %}
+    <!-- To prevent error because there's no csrf token -->
+    <input type="text" name="name" placeholder="name" max="100">
+    <input type="file" name="data_file" id="data_file" placeholder="image">
+    <button type="submit">Submit</button>
+</form>
+
+<!-- <script>
+    function fetch_data(){
+        fetch(/api/data')
+
+    }
+</script> -->
